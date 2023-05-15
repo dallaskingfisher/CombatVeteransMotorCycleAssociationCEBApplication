@@ -1,0 +1,35 @@
+{
+  "name": "combatveteransmotorcycleassociationcebapplication",
+  "version": "1.0.0",
+  "description": "CEB Management Program",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "watch": "nodemon --exec electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dallaskingfisher/CombatVeteransMotorCycleAssociationCEBApplication.git"
+  },
+  "keywords": [
+    "CEB",
+    "Combat",
+    "Veterans",
+    "Motorcycle",
+    "Association"
+  ],
+  "author": "Dallas Fisher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dallaskingfisher/CombatVeteransMotorCycleAssociationCEBApplication/issues"
+  },
+  "homepage": "https://github.com/dallaskingfisher/CombatVeteransMotorCycleAssociationCEBApplication#readme",
+  "devDependencies": {
+    "electron": "^24.3.0",
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "mongo": "^0.1.0"
+  }
+}
