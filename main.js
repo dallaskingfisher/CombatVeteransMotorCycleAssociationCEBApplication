@@ -1,6 +1,7 @@
 // Modules
 const {app, BrowserWindow, ipcMain} = require('electron')
 
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow, catWindow
@@ -27,7 +28,7 @@ function createWindow () {
   mainWindow.loadFile('./renderer/main.html')
 
   // Open DevTools - Remove for PRODUCTION!
-  mainWindow.webContents.openDevTools();
+ // mainWindow.webContents.openDevTools();
  
   // Listen for window being closed
   mainWindow.on('closed',  () => {
@@ -39,7 +40,7 @@ function createChildWindow ( cat){
     catWindow = new BrowserWindow({
       x:500,y: 0,
       width: 1000, height: 900,
-      webPreferences: {
+       webPreferences: {
         contextIsolation: false, 
         nodeIntegration: true
       }
@@ -83,6 +84,7 @@ function createChildWindow ( cat){
 }
 console.log(cat)
 catWindow.loadFile(`./renderer/categories/${cat}/${cat}.html`)
+catWindow.webContents.openDevTools()
 }
 
 // Electron `app` is ready
@@ -94,14 +96,18 @@ app.whenReady().then(() =>{
   })
 }) 
 
-
+//communications
 ipcMain.on('category', (e,args) => {
+  if(catWindow) catWindow.close()
   createChildWindow(args)
-  console.log(args)
 })
+
+
+
 // Quit when all windows are closed - (Not macOS - Darwin)
+
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit()
+  if (process.platform !== 'darwin')  app.quit()
 })
 
 // When app icon is clicked and app is running, (macOS) recreate the BrowserWindow

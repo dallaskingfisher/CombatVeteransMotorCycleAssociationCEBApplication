@@ -1,6 +1,35 @@
 <html>
-    <head>cvma settings</head>
+    <head>
+        <title>CVMA Settings</title>
+        <link rel="stylesheet" src="./settings.css">
+    </head>
     <body>
-        <h1>Settings</h1>
+        <header>
+            <img src="../../../assets/settings.png" width="200px" height="200px">
+            <h1>Settings</h1>
+        </header>
+        <main>
+            <h2>Database Configuration</h2>
+            <form id="submit">
+            <label >Database User:</label>
+            <input type="text"  placeholder="database user"id="username"/>
+            <label >Password:</label>
+            <input type="password" placeholder="Password" id="password"/>
+            <label>Database Name:</label>
+            <input type="text" placeholder="Database Name" id="database" />
+            <input type="submit" value="submit" id="datacreds"/>
+        </form>
+        <br>
+        <h2>administrator configuration</h2>
+           <input type="text" placeholder="username" id="admin-user"/>
+           <input type="password" placeholder="password" id="admin-pass"/>
+           <input type="password" placeholder="verify password" id="admin-verify"/>
+           <input type="submit" value="save" id="administrator"/>
+           <p id="pass-match">Passwords do not match!</p>
+        </main>
+        <script>
+            require('./settings.js')
+
+        </script>
     </body>
 </html>

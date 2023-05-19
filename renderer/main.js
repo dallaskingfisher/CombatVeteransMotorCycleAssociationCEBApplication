@@ -2,7 +2,7 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 const buttons = require('./buttons')
-
+const { ipcRenderer } = require('electron')
 
 
 document.addEventListener('click', e =>{
@@ -19,4 +19,5 @@ document.addEventListener('keydown', e => {
 
 document.addEventListener('dblclick', e =>{
     buttons.categories(e.target.id)
+    console.log(e.target.id)
 })
